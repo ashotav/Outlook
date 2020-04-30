@@ -69,7 +69,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OutlookPageObjectsTests.cs" />
+    <Compile Include="OutlookPgeObjectsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\OutLookView.Actions.cs" />
     <Compile Include="Views\OutLookView.Assertions.cs" />

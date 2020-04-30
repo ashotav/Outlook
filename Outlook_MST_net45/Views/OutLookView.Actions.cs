@@ -1,88 +1,37 @@
 ﻿using OpenQA.Selenium.Appium.Windows;
+using OpenQA.Selenium.Support.UI;
 using System;
+using System.Diagnostics;
 
-namespace oWinAppDriverPageObjects.Views
+namespace WinAppDriverPgeObjects.Views
 {
     public partial class OutLookStandardView
     {
         private readonly WindowsDriver<WindowsElement> _driver;
 
         public OutLookStandardView(WindowsDriver<WindowsElement> driver) => _driver = driver;
-        public void ClickByTab(WindowsElement element)
+        //}
+        public void WaitUntil(WindowsElement element, WebDriverWait wait, string funcName)
         {
-            element.Click();
+            string fName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+            Debug.WriteLine($"Debug: Test: {funcName} {element.Text} {fName} Date: {DateTime.Now:dd-MM-yyyy HH:mm:ss.fff}");
+            Console.WriteLine($"Console: Test:{funcName} { element.Text}{fName} Date: {DateTime.Now:dd-MM-yyyy HH:mm:ss.fff}");
+            wait.Until(pred => element.Displayed);
+            Debug.WriteLine($"Debug: Test: {funcName} {element.Text} {fName} Date: {DateTime.Now:dd-MM-yyyy HH:mm:ss.fff}");
+            Console.WriteLine($"Console: Test:{funcName} { element.Text} {fName} Date: {DateTime.Now:dd-MM-yyyy HH:mm:ss.fff}");
         }
 
-        /*
-                public void PerformCalculation(int num1, char operation, int num2)
-                {
-                    ClickByDigit(num1);
-                    PerformOperations(operation);
-                    ClickByDigit(num2);
-                    EqualsButton.Click();
-                }
-
-                private void ClickByDigit(int digit)
-                {
-                    switch (digit)
-                    {
-                        case 1:
-                            OneButton.Click();
-                            break;
-                        case 2:
-                            TwoButton.Click();
-                            break;
-                        case 3:
-                            ThreeButton.Click();
-                            break;
-                        case 4:
-                            FourButton.Click();
-                            break;
-                        case 5:
-                            FiveButton.Click();
-                            break;
-                        case 6:
-                            SixButton.Click();
-                            break;
-                        case 7:
-                            SevenButton.Click();
-                            break;
-                        case 8:
-                            EightButton.Click();
-                            break;
-                        case 9:
-                            NineButton.Click();
-                            break;
-                        default:
-                            throw new NotSupportedException($"Not Supported digit = {digit}");
-                    }
-                }
-
-                private void PerformOperations(char operation)
-                {
-                    switch (operation)
-                    {
-                        case '+':
-                            PlusButton.Click();
-                            break;
-                        case '-':
-                            MinusButton.Click();
-                            break;
-                        case '=':
-                            EqualsButton.Click();
-                            break;
-                        case '*':
-                            MultiplyByButton.Click();
-                            break;
-                        case '/':
-                            DivideButton.Click();
-                            break;
-                        default:
-                            throw new NotSupportedException($"Not Supported operation = {operation}");
-                    }
-                }
-
-                private string GetCalculatorResultText() => ResultsInput.Text.Replace("Display is", string.Empty).Trim();
-        */
+        public void ClickElement(WindowsElement element,string funcName)
+        {
+            Debug.WriteLine($"Debug: Test: {funcName} {element.Text} Date: {DateTime.Now:dd-MM-yyyy HH:mm:ss.fff}");
+            Console.WriteLine($"Console: Test:{funcName} { element.Text} Date: {DateTime.Now:dd-MM-yyyy HH:mm:ss.fff}");
+            element.Click();
+            Debug.WriteLine($"Debug before scrShot: Test: {funcName} {element.Text} Date: {DateTime.Now:dd-MM-yyyy HH:mm:ss.fff}");
+            Console.WriteLine($"Console before scrShot: Test:{funcName} { element.Text} Date: {DateTime.Now:dd-MM-yyyy HH:mm:ss.fff}");
+            var screenShot = _driver.GetScreenshot();
+            screenShot.SaveAsFile($"..\\ScreenShot\\{funcName}{DateTime.Now.ToString("ddMMyyyyhhmmss")}.png", OpenQA.Selenium.ScreenshotImageFormat.Png);
+            Debug.WriteLine($"Debug after scrShot: Test: {funcName} {element.Text} Date: {DateTime.Now:dd-MM-yyyy HH:mm:ss.fff}");
+            Console.WriteLine($"Console after scrShot: Test:{funcName} { element.Text} Date: {DateTime.Now:dd-MM-yyyy HH:mm:ss.fff}");
+        }
     }
 }
