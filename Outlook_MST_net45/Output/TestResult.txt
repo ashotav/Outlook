@@ -1,0 +1,122 @@
+========================================================================
+Test Name:	FolderClick
+Test Outcome:	Passed
+Result StandardOutput:	
+ClassInitialize
+Application title: Inbox - Archives - Microsoft Outlook
+BeforeClick
+Console: Test:FolderClick FolderWaitUntil Date: 26-04-2020 22:02:58.979
+Console: Test:FolderClick Folder WaitUntil Date: 26-04-2020 22:02:59.269
+Console: Test:FolderClick Folder Date: 26-04-2020 22:03:03.344
+Console before scrShot: Test:FolderClick Folder Date: 26-04-2020 22:03:04.165
+Console after scrShot: Test:FolderClick Folder Date: 26-04-2020 22:03:05.018
+Console Displayed element text: New Folder... True
+AfterClick
+
+
+Debug Trace:
+ClassInit
+BeforeClick
+Debug: Test: FolderClick Folder WaitUntil Date: 26-04-2020 22:02:58.896
+Debug: Test: FolderClick Folder WaitUntil Date: 26-04-2020 22:02:59.187
+Debug: Test: FolderClick Folder Date: 26-04-2020 22:03:03.285
+Debug before scrShot: Test: FolderClick Folder Date: 26-04-2020 22:03:03.920
+Debug after scrShot: Test: FolderClick Folder Date: 26-04-2020 22:03:04.945
+Debug Displayed element text: New Folder... True
+AfterClick
+
+=============================================================================================
+Test Name:	ShowAsConversationsClick
+Test Outcome:	Passed
+Result StandardOutput:	
+BeforeClick
+Console: Test:ShowAsConversationsClick View Date: 26-04-2020 22:03:32.542
+Console before scrShot: Test:ShowAsConversationsClick View Date: 26-04-2020 22:03:32.951
+Console after scrShot: Test:ShowAsConversationsClick View Date: 26-04-2020 22:03:33.388
+Value of checkbox is: True
+Console: Test:ShowAsConversationsClick Show as Conversations Date: 26-04-2020 22:03:39.324
+Console before scrShot: Test:ShowAsConversationsClick Show as Conversations Date: 26-04-2020 22:03:39.838
+Console after scrShot: Test:ShowAsConversationsClick Show as Conversations Date: 26-04-2020 22:03:41.621
+Value of checkbox is: False
+Console: Test:ShowAsConversationsClick Show as Conversations Date: 26-04-2020 22:03:49.195
+Console before scrShot: Test:ShowAsConversationsClick Show as Conversations Date: 26-04-2020 22:03:49.659
+Console after scrShot: Test:ShowAsConversationsClick Show as Conversations Date: 26-04-2020 22:03:51.489
+AfterClick
+
+
+Debug Trace:
+BeforeClick
+Debug: Test: ShowAsConversationsClick View Date: 26-04-2020 22:03:32.491
+Debug before scrShot: Test: ShowAsConversationsClick View Date: 26-04-2020 22:03:32.889
+Debug after scrShot: Test: ShowAsConversationsClick View Date: 26-04-2020 22:03:33.331
+Value of checkbox is: True
+Debug: Test: ShowAsConversationsClick Show as Conversations Date: 26-04-2020 22:03:39.265
+Debug before scrShot: Test: ShowAsConversationsClick Show as Conversations Date: 26-04-2020 22:03:39.736
+Debug after scrShot: Test: ShowAsConversationsClick Show as Conversations Date: 26-04-2020 22:03:41.563
+Value of checkbox is: False
+Debug: Test: ShowAsConversationsClick Show as Conversations Date: 26-04-2020 22:03:49.144
+Debug before scrShot: Test: ShowAsConversationsClick Show as Conversations Date: 26-04-2020 22:03:49.566
+Debug after scrShot: Test: ShowAsConversationsClick Show as Conversations Date: 26-04-2020 22:03:51.429
+AfterClick
+
+
+============================================================================
+Test Name:	ViewClick
+Test Outcome:	Passed
+Result StandardOutput:	
+BeforeClick
+Console: Test:ViewClick View Date: 26-04-2020 22:03:54.078
+Console before scrShot: Test:ViewClick View Date: 26-04-2020 22:03:54.493
+Console after scrShot: Test:ViewClick View Date: 26-04-2020 22:03:54.851
+Console Displayed element text: Change View True
+Console: Test:ViewClick Change View Date: 26-04-2020 22:03:57.998
+Console before scrShot: Test:ViewClick Change View Date: 26-04-2020 22:03:58.473
+Console after scrShot: Test:ViewClick Change View Date: 26-04-2020 22:03:59.255
+Console: Test:ViewClick Change View Date: 26-04-2020 22:04:04.834
+Console before scrShot: Test:ViewClick Change View Date: 26-04-2020 22:04:05.495
+Console after scrShot: Test:ViewClick Change View Date: 26-04-2020 22:04:06.286
+Console: Test:ViewClick Change View Date: 26-04-2020 22:04:11.891
+Console before scrShot: Test:ViewClick Change View Date: 26-04-2020 22:04:12.493
+Console after scrShot: Test:ViewClick Change View Date: 26-04-2020 22:04:13.296
+AfterClick
+
+
+Debug Trace:
+BeforeClick
+Debug: Test: ViewClick View Date: 26-04-2020 22:03:54.021
+Debug before scrShot: Test: ViewClick View Date: 26-04-2020 22:03:54.428
+Debug after scrShot: Test: ViewClick View Date: 26-04-2020 22:03:54.802
+Debug Displayed element text: Change View True
+Debug: Test: ViewClick Change View Date: 26-04-2020 22:03:57.943
+Debug before scrShot: Test: ViewClick Change View Date: 26-04-2020 22:03:58.408
+Debug after scrShot: Test: ViewClick Change View Date: 26-04-2020 22:03:59.184
+Debug: Test: ViewClick Change View Date: 26-04-2020 22:04:04.779
+Debug before scrShot: Test: ViewClick Change View Date: 26-04-2020 22:04:05.372
+Debug after scrShot: Test: ViewClick Change View Date: 26-04-2020 22:04:06.230
+Debug: Test: ViewClick Change View Date: 26-04-2020 22:04:11.816
+Debug before scrShot: Test: ViewClick Change View Date: 26-04-2020 22:04:12.396
+Debug after scrShot: Test: ViewClick Change View Date: 26-04-2020 22:04:13.235
+AfterClick
+
+========================================================================================
+Test Name:	HomeClick
+Test Outcome:	Passed
+Result StandardOutput:	
+BeforeClick
+Console: Test:HomeClick Home Date: 26-04-2020 22:03:09.648
+Console before scrShot: Test:HomeClick Home Date: 26-04-2020 22:03:10.151
+Console after scrShot: Test:HomeClick Home Date: 26-04-2020 22:03:10.482
+Console Displayed element text: New E-mail True
+Console catched:HomeClick An element could not be located on the page using the given search parameters.
+AfterClick
+
+
+Debug Trace:
+BeforeClick
+Debug: Test: HomeClick Home Date: 26-04-2020 22:03:09.570
+Debug before scrShot: Test: HomeClick Home Date: 26-04-2020 22:03:10.089
+Debug after scrShot: Test: HomeClick Home Date: 26-04-2020 22:03:10.399
+Debug Displayed element text: New E-mail True
+Debug catched:HomeClick An element could not be located on the page using the given search parameters.
+AfterClick
+
