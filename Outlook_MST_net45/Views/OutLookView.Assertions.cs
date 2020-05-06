@@ -13,7 +13,6 @@ namespace WinAppDriverPgeObjects.Views
         {
             Assert.IsTrue(element.Displayed, $"Not Found {element.Text }");
             Console.WriteLine($"Console Displayed element text: {element.Text} {element.Displayed}");
-            Debug.WriteLine($"Debug Displayed element text: {element.Text} {element.Displayed}");
         }
         public void AssertExpectedText(string element,string expected)
         {
