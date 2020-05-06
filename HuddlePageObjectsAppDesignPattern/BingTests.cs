@@ -13,11 +13,13 @@
 // <site>https://automatetheplanet.com/</site>
 
 using System;
+using System.Threading;
 using HuddlePageObjectsAppDesignPattern;
 using HuddlePageObjectsAppDesignPattern.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.UI;
 
 namespace HuddlePageObjectsElementsStringProperties
 {
@@ -39,9 +41,26 @@ namespace HuddlePageObjectsElementsStringProperties
         }
 
         [TestMethod]
+        public void TryFirefoxDriver()
+        {
+            using (var driver = new FirefoxDriver())
+            {
+                driver.Navigate().GoToUrl("https://automatetheplanet.com/multiple-files-page-objects-item-templates/");
+                var link = driver.FindElement(By.PartialLinkText("TFS Test API"));
+                var jsToBeExecuted = $"window.scroll(0, {link.Location.Y});";
+                ((IJavaScriptExecutor)driver).ExecuteScript(jsToBeExecuted);
+                var wait = new WebDriverWait(driver, TimeSpan.FromMinutes(1));
+                /*DBG*/ Thread.Sleep(TimeSpan.FromSeconds(8));
+                var clickableElement = wait.Until(ExpectedConditions.ElementToBeClickable(By.PartialLinkText("TFS Test API")));
+                clickableElement.Click();
+            }
+        }
+
+        [TestMethod]
         public void UseApp_SearchTextInBing_UseElementsDirectly()
         {
             var bingMainPage = _app.GoTo<BingMainPage>();
+            /*DBG*/ Thread.Sleep(TimeSpan.FromSeconds(8));
             bingMainPage.Search("Automate The Planet");
 
             bingMainPage.AssertResultsCount("236,000 RESULTS");
