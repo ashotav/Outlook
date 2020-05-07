@@ -46,12 +46,12 @@ namespace HuddlePageObjectsElementsStringProperties
             using (var driver = new FirefoxDriver())
             {
                 driver.Navigate().GoToUrl("https://automatetheplanet.com/multiple-files-page-objects-item-templates/");
-                var link = driver.FindElement(By.PartialLinkText("TFS Test API"));
+                var link = driver.FindElement(By.PartialLinkText("SCI-FI Stories"));
                 var jsToBeExecuted = $"window.scroll(0, {link.Location.Y});";
                 ((IJavaScriptExecutor)driver).ExecuteScript(jsToBeExecuted);
                 var wait = new WebDriverWait(driver, TimeSpan.FromMinutes(1));
                 /*DBG*/ Thread.Sleep(TimeSpan.FromSeconds(8));
-                var clickableElement = wait.Until(ExpectedConditions.ElementToBeClickable(By.PartialLinkText("TFS Test API")));
+                var clickableElement = wait.Until(ExpectedConditions.ElementToBeClickable(By.PartialLinkText("Design Patterns")));
                 clickableElement.Click();
             }
         }

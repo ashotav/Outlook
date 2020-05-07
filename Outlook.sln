@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Outlook_MST_net45", "Outloo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HuddlePageObjectsAppDesignPattern", "HuddlePageObjectsAppDesignPattern\HuddlePageObjectsAppDesignPattern.csproj", "{E1D0EC3D-96FB-43E8-9143-F8EF78882539}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeadlessTestsFirefox", "HeadlessTestsFirefox\HeadlessTestsFirefox.csproj", "{B10FBBD9-9CB0-41B7-B8ED-A5950EBE962C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HuddlePageObjectsElementsAccessStyles", "HuddlePageObjectsElementsAccessStyles\HuddlePageObjectsElementsAccessStyles.csproj", "{2A828F78-FE22-4044-B6AB-CA5AED162D02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{E1D0EC3D-96FB-43E8-9143-F8EF78882539}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1D0EC3D-96FB-43E8-9143-F8EF78882539}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1D0EC3D-96FB-43E8-9143-F8EF78882539}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B10FBBD9-9CB0-41B7-B8ED-A5950EBE962C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B10FBBD9-9CB0-41B7-B8ED-A5950EBE962C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B10FBBD9-9CB0-41B7-B8ED-A5950EBE962C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B10FBBD9-9CB0-41B7-B8ED-A5950EBE962C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A828F78-FE22-4044-B6AB-CA5AED162D02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A828F78-FE22-4044-B6AB-CA5AED162D02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A828F78-FE22-4044-B6AB-CA5AED162D02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A828F78-FE22-4044-B6AB-CA5AED162D02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
