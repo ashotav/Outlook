@@ -11,6 +11,9 @@
 // </copyright>
 // <author>Anton Angelov</author>
 // <site>https://automatetheplanet.com/</site>
+using OpenQA.Selenium.Support.UI;
+using System;
+
 namespace HuddlePageObjectsAppDesignPattern
 {
     public partial class BingMainPage

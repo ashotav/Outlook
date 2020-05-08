@@ -41,7 +41,7 @@ namespace HuddlePageObjectsAppDesignPattern.Core
         public TPage GoTo<TPage>()
             where TPage : NavigatablePage
         {
-            var constructor = typeof(TPage).GetTypeInfo().GetConstructors(BindingFlags.NonPublic | BindingFlags.Instance).FirstOrDefault();
+            var constructor = typeof(TPage).GetTypeInfo().GetConstructors(/*BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.CreateInstance*/).FirstOrDefault();
             var page = constructor.Invoke(new object[] { _driver }) as TPage;
             page.GoTo();
             return page;

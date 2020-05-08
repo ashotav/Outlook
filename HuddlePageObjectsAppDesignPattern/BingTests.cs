@@ -40,21 +40,22 @@ namespace HuddlePageObjectsElementsStringProperties
             _app.Dispose();
         }
 
-        [TestMethod]
-        public void TryFirefoxDriver()
-        {
-            using (var driver = new FirefoxDriver())
-            {
-                driver.Navigate().GoToUrl("https://automatetheplanet.com/multiple-files-page-objects-item-templates/");
-                var link = driver.FindElement(By.PartialLinkText("TFS Test API"));
-                var jsToBeExecuted = $"window.scroll(0, {link.Location.Y});";
-                ((IJavaScriptExecutor)driver).ExecuteScript(jsToBeExecuted);
-                var wait = new WebDriverWait(driver, TimeSpan.FromMinutes(1));
-                /*DBG*/ Thread.Sleep(TimeSpan.FromSeconds(8));
-                var clickableElement = wait.Until(ExpectedConditions.ElementToBeClickable(By.PartialLinkText("TFS Test API")));
-                clickableElement.Click();
-            }
-        }
+        //[TestMethod]
+        //public void TryFirefoxDriver()
+        //{
+        //    using (var driver = new FirefoxDriver())
+        //    {
+        //        driver.Navigate().GoToUrl("https://automatetheplanet.com/multiple-files-page-objects-item-templates/");
+        //        var link = driver.FindElement(By.PartialLinkText("TFS Test API"));
+        //        var jsToBeExecuted = $"window.scroll(0, {link.Location.Y});";
+        //        ((IJavaScriptExecutor)driver).ExecuteScript(jsToBeExecuted);
+        //        var wait = new WebDriverWait(driver, TimeSpan.FromMinutes(1));
+        //        /*DBG*/
+        //        Thread.Sleep(TimeSpan.FromSeconds(8));
+        //        var clickableElement = wait.Until(ExpectedConditions.ElementToBeClickable(By.PartialLinkText("TFS Test API")));
+        //        clickableElement.Click();
+        //    }
+        //}
 
         [TestMethod]
         public void UseApp_SearchTextInBing_UseElementsDirectly()
@@ -62,8 +63,8 @@ namespace HuddlePageObjectsElementsStringProperties
             var bingMainPage = _app.GoTo<BingMainPage>();
             /*DBG*/ Thread.Sleep(TimeSpan.FromSeconds(8));
             bingMainPage.Search("Automate The Planet");
-
-            bingMainPage.AssertResultsCount("236,000 RESULTS");
+            //Thread.Sleep(TimeSpan.FromSeconds(3000));
+                bingMainPage.AssertResultsCount("236,000 RESULTS");
         }
     }
 }

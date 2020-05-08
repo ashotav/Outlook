@@ -13,6 +13,7 @@
 // <site>https://automatetheplanet.com/</site>
 using HuddlePageObjectsAppDesignPattern.Core;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 
 namespace HuddlePageObjectsAppDesignPattern
 {
@@ -23,13 +24,17 @@ namespace HuddlePageObjectsAppDesignPattern
         }
 
         public override string Url => "http://www.bing.com/";
+        //public override string Url => "http://www.google.com/";
 
 
         public void Search(string textToType)
         {
             SearchBox.Clear();
             SearchBox.SendKeys(textToType);
-            GoButton.Click();
+            //WrappedDriver.SwitchTo().Frame(GoButton);
+            Actions act = new Actions(WrappedDriver);
+            act.MoveToElement(GoButton).Click().Perform();
+            //GoButton.Click();
         }
     }
 }
