@@ -23,5 +23,6 @@ namespace HuddlePageObjectsElementsAccessStyles.PublicPropertiesElements
         public IWebElement GoButton => _driver.FindElement(By.Id("sb_form_go"));
 
         public IWebElement ResultsCountDiv => _driver.FindElement(By.Id("b_tween"));
+        public IWebElement SetBox => _driver.FindElement(By.Id("id_sc"));
     }
 }

@@ -12,6 +12,7 @@
 // <author>Anton Angelov</author>
 // <site>https://automatetheplanet.com/</site>
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 
 namespace HuddlePageObjectsElementsAccessStyles.ElementsExposedAsProperties
 {
@@ -32,7 +33,11 @@ namespace HuddlePageObjectsElementsAccessStyles.ElementsExposedAsProperties
         {
             Elements.SearchBox.Clear();
             Elements.SearchBox.SendKeys(textToType);
-            Elements.GoButton.Click();
+            Actions act = new Actions(_driver);
+            act.MoveToElement(Elements.GoButton).Click().Perform();
+            //Elements.GoButton.Click();
+            Elements.SetBox.Click();
+                
         }
 
         public BingMainPageElements Elements { get; set; }

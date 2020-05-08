@@ -22,5 +22,7 @@ namespace HuddlePageObjectsAppDesignPattern
         public IWebElement GoButton => WrappedDriver.FindElement(By.Id("sb_form_go"));
 
         public IWebElement ResultsCountDiv => WrappedDriver.FindElement(By.Id("b_tween"));
+        public IWebElement SearchYB => WrappedDriver.FindElement(By.ClassName("button_text"));
+        public IWebElement SearchYText => WrappedDriver.FindElement(By.Id("text"));
     }
 }

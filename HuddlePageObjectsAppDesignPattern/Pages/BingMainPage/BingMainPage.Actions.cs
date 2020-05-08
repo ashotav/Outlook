@@ -14,6 +14,8 @@
 using HuddlePageObjectsAppDesignPattern.Core;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace HuddlePageObjectsAppDesignPattern
 {
@@ -25,16 +27,34 @@ namespace HuddlePageObjectsAppDesignPattern
 
         public override string Url => "http://www.bing.com/";
         //public override string Url => "http://www.google.com/";
+        //public override string Url => "http://yandex.com/";
 
 
         public void Search(string textToType)
         {
             SearchBox.Clear();
             SearchBox.SendKeys(textToType);
-            //WrappedDriver.SwitchTo().Frame(GoButton);
+            //SearchBox.SendKeys(Keys.Enter);
+            //WrappedDriver.SwitchTo().Frame(WrappedDriver.FindElement(By.Id("sb_form")));
+            ////1. presence in DOM
+            var wait = new WebDriverWait(WrappedDriver, TimeSpan.FromSeconds(8));
+            ////wait.Until(ExpectedConditions.ElementExists(By.Id("sb_form_go")));
+            //wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("sb_form_go")));
             Actions act = new Actions(WrappedDriver);
-            act.MoveToElement(GoButton).Click().Perform();
+            //act.MoveToElement(GoButton).ClickAndHold();
+            //act.MoveToElement(WrappedDriver.FindElement(By.Id("sb_form_go"))).SendKeys(Keys.Enter).Perform();
+            //.Perform();
+            //wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("sb_form_go")));
+            //GoButton.Submit();
+            //string js = string.Format("window.scroll(0, {0});", GoButton.Location.Y);
+            //((IJavaScriptExecutor)WrappedDriver).ExecuteScript(js);
             //GoButton.Click();
+            //SearchYText.Clear();
+            //SearchYText.SendKeys(textToType);
+            //SearchYB.Click();
+            
+            SelectElement select = new SelectElement(WrappedDriver.FindElement(By.Id("sb_form_q")));
+            select.SelectByText(textToType);
         }
     }
 }

@@ -12,6 +12,7 @@
 // <author>Anton Angelov</author>
 // <site>https://automatetheplanet.com/</site>
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 
 namespace HuddlePageObjectsElementsAccessStyles.PrivateElementsNotAccessibleInTests
 {
@@ -28,7 +29,11 @@ namespace HuddlePageObjectsElementsAccessStyles.PrivateElementsNotAccessibleInTe
         {
             _searchBox.Clear();
             _searchBox.SendKeys(textToType);
-            _goButton.Click();
+            Actions act = new Actions(_driver);
+            var d = act.MoveToElement(_goButton);
+            var c =  d.Click();
+            //act.MoveToElement(_goButton).Click().Perform();
+            //_goButton.Click();
         }
     }
 }

@@ -13,6 +13,7 @@
 // <site>https://automatetheplanet.com/</site>
 
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 
 namespace HuddlePageObjectsElementsAccessStyles.ProtectedElementsNotAccessibleInTests
 {
@@ -29,7 +30,9 @@ namespace HuddlePageObjectsElementsAccessStyles.ProtectedElementsNotAccessibleIn
         {
             SearchBox.Clear();
             SearchBox.SendKeys(textToType);
-            GoButton.Click();
+            Actions act = new Actions(Driver);
+            act.MoveToElement(GoButton).Click().Perform();
+            //GoButton.Click();
         }
     }
 }

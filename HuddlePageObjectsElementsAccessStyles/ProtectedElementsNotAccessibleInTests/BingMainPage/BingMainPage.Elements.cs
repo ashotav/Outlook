@@ -23,5 +23,6 @@ namespace HuddlePageObjectsElementsAccessStyles.ProtectedElementsNotAccessibleIn
         protected IWebElement GoButton => Driver.FindElement(By.Id("sb_form_go"));
 
         protected IWebElement ResultsCountDiv => Driver.FindElement(By.Id("b_tween"));
+        protected IWebElement SetBox => Driver.FindElement(By.Id("id_sc"));
     }
 }

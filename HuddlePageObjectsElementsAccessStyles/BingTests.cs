@@ -17,6 +17,7 @@ using HuddlePageObjectsElementsAccessStyles.PublicPropertiesElements;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Interactions;
 
 namespace HuddlePageObjectsElementsAccessStyles
 {
@@ -56,7 +57,9 @@ namespace HuddlePageObjectsElementsAccessStyles
 
             bingMainPage.Navigate();
             bingMainPage.SearchBox.SendKeys("Automate The Planet");
-            bingMainPage.GoButton.Click();
+            Actions act = new Actions(_driver);
+            act.MoveToElement(bingMainPage.GoButton).Click().Perform();
+            //bingMainPage.GoButton.Click();
 
             Assert.AreEqual(bingMainPage.ResultsCountDiv, "236,000 RESULTS");
         }
@@ -90,7 +93,9 @@ namespace HuddlePageObjectsElementsAccessStyles
 
             bingMainPage.Navigate();
             bingMainPage.Elements.SearchBox.SendKeys("Automate The Planet");
-            bingMainPage.Elements.GoButton.Click();
+            Actions act = new Actions(_driver);
+            act.MoveToElement(bingMainPage.Elements.GoButton).Click().Perform();
+            //bingMainPage.Elements.GoButton.Click();
 
             Assert.AreEqual(bingMainPage.Elements.ResultsCountDiv, "236,000 RESULTS");
         }
