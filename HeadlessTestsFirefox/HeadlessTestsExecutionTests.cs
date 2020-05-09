@@ -11,7 +11,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 
@@ -43,7 +42,7 @@ namespace HeadlessTestsFirefox
             Profile
             (
                 "TestFirefoxExecutionTime",
-                10,
+                1,
                 () =>
                 {
                     using (IWebDriver driver = new FirefoxDriver())
@@ -60,9 +59,11 @@ namespace HeadlessTestsFirefox
             Profile
             (
                 "TestEdgeExecutionTime",
-                10,
+                1,
                 () =>
                 {
+                    var edgeOptions = new EdgeOptions();
+
                     using (IWebDriver driver = new EdgeDriver())
                     {
                         PerformTestOperations(driver);
@@ -96,7 +97,7 @@ namespace HeadlessTestsFirefox
             Profile
             (
                 "TestFirefoxHeadlessExecutionTime",
-                10,
+                1,
                 () =>
                 {
                     var options = new FirefoxOptions();
