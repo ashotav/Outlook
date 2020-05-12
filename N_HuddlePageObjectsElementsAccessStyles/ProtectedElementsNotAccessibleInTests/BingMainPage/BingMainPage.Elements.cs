@@ -13,20 +13,16 @@
 // <site>https://automatetheplanet.com/</site>
 using OpenQA.Selenium;
 
-namespace HuddlePageObjectsElementsAccessStyles.PublicPropertiesElements
+namespace HuddlePageObjectsElementsAccessStyles.ProtectedElementsNotAccessibleInTests
 {
 
     public partial class BingMainPage
     {
-        //public IWebElement SearchBox => _driver.FindElement(By.Id("sb_form_q"));
+        protected IWebElement SearchBox => Driver.FindElement(By.Id("sb_form_q"));
 
-        //public IWebElement GoButton => _driver.FindElement(By.Id("sb_form_go"));
+        protected IWebElement GoButton => Driver.FindElement(By.Id("sb_form_go"));
 
-        //public IWebElement ResultsCountDiv => _driver.FindElement(By.Id("b_tween"));
-        public IWebElement SearchBox => _driver.FindElement(By.Id("header-search-input"));
-        public IWebElement GoButton => _driver.FindElement(By.Id("header-desktop-search-button"));
-
-        //private IWebElement _resultsCountDiv => _driver.FindElement(By.Id("b_tween"));
-        public IWebElement ResultsCountDiv => _driver.FindElement(By.XPath("//*[@class=' fz-13']"));
+        protected IWebElement ResultsCountDiv => Driver.FindElement(By.Id("b_tween"));
+        protected IWebElement SetBox => Driver.FindElement(By.Id("id_sc"));
     }
 }

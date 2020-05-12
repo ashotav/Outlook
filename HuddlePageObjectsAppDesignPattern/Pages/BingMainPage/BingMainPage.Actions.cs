@@ -16,6 +16,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.Linq;
 
 namespace HuddlePageObjectsAppDesignPattern
 {
@@ -27,34 +28,29 @@ namespace HuddlePageObjectsAppDesignPattern
 
         public override string Url => "http://www.bing.com/";
         //public override string Url => "http://www.google.com/";
-        //public override string Url => "http://yandex.com/";
+        //public override string Url => "http://yahoo.com/";
+        //public override string Url => "http://aol.com/";
 
 
         public void Search(string textToType)
         {
             SearchBox.Clear();
-            SearchBox.SendKeys(textToType);
-            //SearchBox.SendKeys(Keys.Enter);
-            //WrappedDriver.SwitchTo().Frame(WrappedDriver.FindElement(By.Id("sb_form")));
-            ////1. presence in DOM
-            var wait = new WebDriverWait(WrappedDriver, TimeSpan.FromSeconds(8));
-            ////wait.Until(ExpectedConditions.ElementExists(By.Id("sb_form_go")));
-            //wait.Until(ExpectedConditions.ElementToBeClickable(By.Id("sb_form_go")));
-            Actions act = new Actions(WrappedDriver);
-            //act.MoveToElement(GoButton).ClickAndHold();
-            //act.MoveToElement(WrappedDriver.FindElement(By.Id("sb_form_go"))).SendKeys(Keys.Enter).Perform();
-            //.Perform();
-            //wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("sb_form_go")));
-            //GoButton.Submit();
-            //string js = string.Format("window.scroll(0, {0});", GoButton.Location.Y);
-            //((IJavaScriptExecutor)WrappedDriver).ExecuteScript(js);
+            SearchBox.SendKeys(textToType +Keys.Enter);//
             //GoButton.Click();
-            //SearchYText.Clear();
-            //SearchYText.SendKeys(textToType);
-            //SearchYB.Click();
-            
-            SelectElement select = new SelectElement(WrappedDriver.FindElement(By.Id("sb_form_q")));
-            select.SelectByText(textToType);
+            ////var link = WrappedDriver.FindElement(By.PartialLinkText("Homepage"));
+            //////var jsToBeExecuted = $"window.scroll(0, {link.Location.Y});";
+            //////((IJavaScriptExecutor)WrappedDriver).ExecuteScript(jsToBeExecuted);
+            ////var wait = new WebDriverWait(WrappedDriver, TimeSpan.FromMinutes(1));
+            //////System.Threading.Thread.Sleep(TimeSpan.FromSeconds(8));
+            ////var clickableElement = wait.Until(ExpectedConditions.ElementToBeClickable(By.PartialLinkText("Homepage")));
+            ////clickableElement.Click();
+            //System.Threading.Thread.Sleep(TimeSpan.FromSeconds(8));
+            WrappedDriver.SwitchTo().Window(WrappedDriver.WindowHandles.Last());
+
+            WebDriverWait wait = new WebDriverWait(WrappedDriver, TimeSpan.FromSeconds(10));
+            wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.Id("b_tween")));
+            bool bis = ResultsCountDiv.Text.Contains(ResultsCountDiv.Text);
+            Assert.IsTrue(bis);
         }
     }
 }

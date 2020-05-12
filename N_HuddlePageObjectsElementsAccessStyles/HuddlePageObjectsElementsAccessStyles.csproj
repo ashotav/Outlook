@@ -5,16 +5,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E1D0EC3D-96FB-43E8-9143-F8EF78882539}</ProjectGuid>
+    <ProjectGuid>{2A828F78-FE22-4044-B6AB-CA5AED162D02}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HuddlePageObjectsAppDesignPattern</RootNamespace>
-    <AssemblyName>HuddlePageObjectsAppDesignPattern</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RootNamespace>HuddlePageObjectsElementsAccessStyles</RootNamespace>
+    <AssemblyName>HuddlePageObjectsElementsAccessStyles</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,17 +56,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ProtectedElementsNotAccessibleInTests\BingMainPage\BingChildPage.Actions.cs" />
+    <Compile Include="ProtectedElementsNotAccessibleInTests\BingMainPage\BingMainPage.Actions.cs" />
+    <Compile Include="ProtectedElementsNotAccessibleInTests\BingMainPage\BingMainPage.Asserts.cs" />
+    <Compile Include="ProtectedElementsNotAccessibleInTests\BingMainPage\BingMainPage.Elements.cs" />
+    <Compile Include="PrivateElementsNotAccessibleInTests\BingMainPage\BingMainPage.Actions.cs" />
+    <Compile Include="PrivateElementsNotAccessibleInTests\BingMainPage\BingMainPage.Asserts.cs" />
+    <Compile Include="PrivateElementsNotAccessibleInTests\BingMainPage\BingMainPage.Elements.cs" />
+    <Compile Include="ElementsExposedAsProperties\BingMainPage\BingMainPage.Actions.cs" />
+    <Compile Include="ElementsExposedAsProperties\BingMainPage\BingMainPage.Asserts.cs" />
+    <Compile Include="ElementsExposedAsProperties\BingMainPage\BingMainPageElements.cs" />
+    <Compile Include="PublicPropertiesElements\BingMainPage\BingMainPage.Actions.cs" />
+    <Compile Include="PublicPropertiesElements\BingMainPage\BingMainPage.Asserts.cs" />
+    <Compile Include="PublicPropertiesElements\BingMainPage\BingMainPage.Elements.cs" />
     <Compile Include="BingTests.cs" />
-    <Compile Include="Core\App.cs" />
-    <Compile Include="Core\AssertedNavigatablePage.cs" />
-    <Compile Include="Core\AssertedPage.cs" />
-    <Compile Include="Core\BrowserType.cs" />
-    <Compile Include="Core\IAssert.cs" />
-    <Compile Include="Core\NavigatablePage.cs" />
-    <Compile Include="Core\Page.cs" />
-    <Compile Include="Pages\BingMainPage\BingMainPage.Actions.cs" />
-    <Compile Include="Pages\BingMainPage\BingMainPage.Asserts.cs" />
-    <Compile Include="Pages\BingMainPage\BingMainPage.Elements.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,10 +86,10 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Selenium.Firefox.WebDriver.0.26.0\build\Selenium.Firefox.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Firefox.WebDriver.0.26.0\build\Selenium.Firefox.WebDriver.targets'))" />
     <Error Condition="!Exists('..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.props'))" />
     <Error Condition="!Exists('..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.Firefox.WebDriver.0.26.0\build\Selenium.Firefox.WebDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.Firefox.WebDriver.0.26.0\build\Selenium.Firefox.WebDriver.targets'))" />
   </Target>
-  <Import Project="..\packages\Selenium.Firefox.WebDriver.0.26.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.26.0\build\Selenium.Firefox.WebDriver.targets')" />
   <Import Project="..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.targets" Condition="Exists('..\packages\MSTest.TestAdapter.2.1.1\build\net45\MSTest.TestAdapter.targets')" />
+  <Import Project="..\packages\Selenium.Firefox.WebDriver.0.26.0\build\Selenium.Firefox.WebDriver.targets" Condition="Exists('..\packages\Selenium.Firefox.WebDriver.0.26.0\build\Selenium.Firefox.WebDriver.targets')" />
 </Project>

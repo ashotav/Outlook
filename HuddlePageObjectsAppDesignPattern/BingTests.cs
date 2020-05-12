@@ -13,6 +13,8 @@
 // <site>https://automatetheplanet.com/</site>
 
 using System;
+using System.IO;
+using System.Reflection;
 using System.Threading;
 using HuddlePageObjectsAppDesignPattern;
 using HuddlePageObjectsAppDesignPattern.Core;
@@ -20,6 +22,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 
 namespace HuddlePageObjectsElementsStringProperties
@@ -44,7 +47,7 @@ namespace HuddlePageObjectsElementsStringProperties
         [TestMethod]
         public void TryFirefoxDriver()
         {
-            EdgeDriver d = new EdgeDriver("C:\\Windows\\System32\\");
+            var d = new EdgeDriver();
             //using (var driver = new FirefoxDriver())
             //{
             //    driver.Navigate().GoToUrl("https://automatetheplanet.com/multiple-files-page-objects-item-templates/");
@@ -65,8 +68,11 @@ namespace HuddlePageObjectsElementsStringProperties
             var bingMainPage = _app.GoTo<BingMainPage>();
             /*DBG*/ Thread.Sleep(TimeSpan.FromSeconds(8));
             bingMainPage.Search("Automate The Planet");
-            //Thread.Sleep(TimeSpan.FromSeconds(3000));
-                bingMainPage.AssertResultsCount("236,000 RESULTS");
+            //Thread.Sleep(TimeSpan.FromSeconds(30));
+            string str = "236,000 RESULTS";
+            //bingMainPage.AssertResultsCount(str);
+            //bingMainPage.AssertResultsCount("940,000 Results");
+            System.Threading.Thread.Sleep(TimeSpan.FromSeconds(18));
         }
     }
 }

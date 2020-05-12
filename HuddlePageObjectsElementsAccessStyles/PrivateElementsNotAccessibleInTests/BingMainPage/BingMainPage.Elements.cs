@@ -19,10 +19,13 @@ namespace HuddlePageObjectsElementsAccessStyles.PrivateElementsNotAccessibleInTe
 
     public partial class BingMainPage
     {
-        private IWebElement _searchBox => _driver.FindElement(By.Id("sb_form_q"));
+        //private IWebElement _searchBox => _driver.FindElement(By.Id("sb_form_q"));
 
-        private IWebElement _goButton => _driver.FindElement(By.Id("sb_form_go"));
+        //private IWebElement _goButton => _driver.FindElement(By.Id("sb_form_go"));
+        private IWebElement _searchBox => _driver.FindElement(By.Id("header-search-input"));
+        private IWebElement _goButton => _driver.FindElement(By.Id("header-desktop-search-button"));
 
-        private IWebElement _resultsCountDiv => _driver.FindElement(By.Id("b_tween"));
+        //private IWebElement _resultsCountDiv => _driver.FindElement(By.Id("b_tween"));
+        private IWebElement _resultsCountDiv => _driver.FindElement(By.XPath("//*[@class=' fz-13']"));
     }
 }

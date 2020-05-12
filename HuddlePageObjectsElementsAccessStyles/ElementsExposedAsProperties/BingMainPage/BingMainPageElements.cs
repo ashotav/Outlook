@@ -23,11 +23,13 @@ namespace HuddlePageObjectsElementsAccessStyles.ElementsExposedAsProperties
 
         public BingMainPageElements(IWebDriver driver) => _driver = driver;
 
-        public IWebElement SearchBox => _driver.FindElement(By.Id("sb_form_q"));
+        //public IWebElement SearchBox => _driver.FindElement(By.Id("sb_form_q"));
 
-        public IWebElement GoButton => _driver.FindElement(By.Id("sb_form_go"));
+        //public IWebElement GoButton => _driver.FindElement(By.Id("sb_form_go"));
 
-        public IWebElement ResultsCountDiv => _driver.FindElement(By.Id("b_tween"));
-        public IWebElement SetBox => _driver.FindElement(By.Id("id_sc"));
+        public IWebElement SearchBox => _driver.FindElement(By.Id("header-search-input"));
+        public IWebElement GoButton => _driver.FindElement(By.Id("header-desktop-search-button"));
+        //public IWebElement ResultsCountDiv => _driver.FindElement(By.Id("b_tween"));
+        public IWebElement ResultsCountDiv => _driver.FindElement(By.XPath("//*[@class=' fz-13']"));
     }
 }

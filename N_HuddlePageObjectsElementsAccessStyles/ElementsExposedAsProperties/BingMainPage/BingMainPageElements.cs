@@ -11,22 +11,23 @@
 // </copyright>
 // <author>Anton Angelov</author>
 // <site>https://automatetheplanet.com/</site>
+
 using OpenQA.Selenium;
 
-namespace HuddlePageObjectsElementsAccessStyles.PublicPropertiesElements
+namespace HuddlePageObjectsElementsAccessStyles.ElementsExposedAsProperties
 {
 
-    public partial class BingMainPage
+    public class BingMainPageElements
     {
-        //public IWebElement SearchBox => _driver.FindElement(By.Id("sb_form_q"));
+        private readonly IWebDriver _driver;
 
-        //public IWebElement GoButton => _driver.FindElement(By.Id("sb_form_go"));
+        public BingMainPageElements(IWebDriver driver) => _driver = driver;
 
-        //public IWebElement ResultsCountDiv => _driver.FindElement(By.Id("b_tween"));
-        public IWebElement SearchBox => _driver.FindElement(By.Id("header-search-input"));
-        public IWebElement GoButton => _driver.FindElement(By.Id("header-desktop-search-button"));
+        public IWebElement SearchBox => _driver.FindElement(By.Id("sb_form_q"));
 
-        //private IWebElement _resultsCountDiv => _driver.FindElement(By.Id("b_tween"));
-        public IWebElement ResultsCountDiv => _driver.FindElement(By.XPath("//*[@class=' fz-13']"));
+        public IWebElement GoButton => _driver.FindElement(By.Id("sb_form_go"));
+
+        public IWebElement ResultsCountDiv => _driver.FindElement(By.Id("b_tween"));
+        public IWebElement SetBox => _driver.FindElement(By.Id("id_sc"));
     }
 }

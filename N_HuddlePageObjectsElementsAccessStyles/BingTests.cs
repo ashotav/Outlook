@@ -17,7 +17,7 @@ using HuddlePageObjectsElementsAccessStyles.PublicPropertiesElements;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Interactions;
 
 namespace HuddlePageObjectsElementsAccessStyles
 {
@@ -56,8 +56,10 @@ namespace HuddlePageObjectsElementsAccessStyles
             var bingMainPage = new BingMainPage(_driver);
 
             bingMainPage.Navigate();
-            bingMainPage.SearchBox.SendKeys("Automate The Planet");
-            bingMainPage.GoButton.Click();
+            bingMainPage.SearchBox.SendKeys("Automate The Planet"+Keys.Enter);
+            //Actions act = new Actions(_driver);
+            //act.MoveToElement(bingMainPage.GoButton).Click().Perform();
+            //bingMainPage.GoButton.Click();
 
             Assert.AreEqual(bingMainPage.ResultsCountDiv, "236,000 RESULTS");
         }
@@ -69,12 +71,8 @@ namespace HuddlePageObjectsElementsAccessStyles
 
             bingMainPage.Navigate();
             bingMainPage.Search("Automate The Planet");
-            //Assert.IsTrue(true);
-            //WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            //wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.XPath("//*[@class=' fz-13']")));
 
-             bingMainPage.AssertResultsCount("About 72,900,000 search results");
-            //bingMainPage.AssertResultsCount("236,000 RESULTS");
+            bingMainPage.AssertResultsCount("236,000 RESULTS");
         }
 
         [TestMethod]
@@ -95,7 +93,9 @@ namespace HuddlePageObjectsElementsAccessStyles
 
             bingMainPage.Navigate();
             bingMainPage.Elements.SearchBox.SendKeys("Automate The Planet");
-            bingMainPage.Elements.GoButton.Click();
+            Actions act = new Actions(_driver);
+            act.MoveToElement(bingMainPage.Elements.GoButton).Click().Perform();
+            //bingMainPage.Elements.GoButton.Click();
 
             Assert.AreEqual(bingMainPage.Elements.ResultsCountDiv, "236,000 RESULTS");
         }

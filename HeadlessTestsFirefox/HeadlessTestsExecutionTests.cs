@@ -62,9 +62,8 @@ namespace HeadlessTestsFirefox
                 1,
                 () =>
                 {
-                    var edgeOptions = new EdgeOptions();
-
-                    using (IWebDriver driver = new EdgeDriver())
+                    IWebDriver driver = new EdgeDriver();
+                    //using (IWebDriver driver = new EdgeDriver())
                     {
                         PerformTestOperations(driver);
                     }
@@ -101,7 +100,7 @@ namespace HeadlessTestsFirefox
                 () =>
                 {
                     var options = new FirefoxOptions();
-                    options.AddArguments("--headless");
+                    options.AddArguments("headless");
                     using (IWebDriver driver = new FirefoxDriver(options))
                     {
                         PerformTestOperations(driver);

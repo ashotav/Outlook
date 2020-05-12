@@ -12,6 +12,7 @@
 // <author>Anton Angelov</author>
 // <site>https://automatetheplanet.com/</site>
 using OpenQA.Selenium;
+using System.Runtime.Remoting.Messaging;
 
 namespace HuddlePageObjectsAppDesignPattern
 {
@@ -22,7 +23,14 @@ namespace HuddlePageObjectsAppDesignPattern
         public IWebElement GoButton => WrappedDriver.FindElement(By.Id("sb_form_go"));
 
         public IWebElement ResultsCountDiv => WrappedDriver.FindElement(By.Id("b_tween"));
-        public IWebElement SearchYB => WrappedDriver.FindElement(By.ClassName("button_text"));
-        public IWebElement SearchYText => WrappedDriver.FindElement(By.Id("text"));
+
+        //public IWebElement SearchYB => WrappedDriver.FindElement(By.ClassName("button_text"));
+        ////public IWebElement SearchBox => WrappedDriver.FindElement(By.Id("header-search-input"));
+        ////public IWebElement GoButton => WrappedDriver.FindElement(By.Id("header-desktop-search-button"));
+
+        //public IWebElement ResultsCountDiv => WrappedDriver.FindElement(By.Id("b_tween"));
+        
+         
+
     }
 }

@@ -13,14 +13,14 @@
 // <site>https://automatetheplanet.com/</site>
 
 using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
 
 namespace HuddlePageObjectsElementsAccessStyles.ProtectedElementsNotAccessibleInTests
 {
     public partial class BingMainPage
     {
         protected readonly IWebDriver Driver;
-        protected readonly string _url = @"http://www.bing.com/";
+        //protected readonly string _url = @"http://www.bing.com/";
+        protected readonly string _url = @"http://www.aol.com/";
 
         protected BingMainPage(IWebDriver browser) => Driver = browser;
 
@@ -30,9 +30,7 @@ namespace HuddlePageObjectsElementsAccessStyles.ProtectedElementsNotAccessibleIn
         {
             SearchBox.Clear();
             SearchBox.SendKeys(textToType);
-            Actions act = new Actions(Driver);
-            act.MoveToElement(GoButton).Click().Perform();
-            //GoButton.Click();
+            GoButton.Click();
         }
     }
 }

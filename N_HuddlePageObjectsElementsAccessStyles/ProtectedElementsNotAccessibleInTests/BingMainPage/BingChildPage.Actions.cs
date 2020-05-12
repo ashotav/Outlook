@@ -1,4 +1,4 @@
-﻿// <copyright file="BingMainPage.Elements.cs" company="Automate The Planet Ltd.">
+﻿// <copyright file="BingMainPage.Actions.cs" company="Automate The Planet Ltd.">
 // Copyright 2017 Automate The Planet Ltd.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // You may not use this file except in compliance with the License.
@@ -15,18 +15,15 @@ using OpenQA.Selenium;
 
 namespace HuddlePageObjectsElementsAccessStyles.ProtectedElementsNotAccessibleInTests
 {
-
-    public partial class BingMainPage
+    public partial class BingChildPage : BingMainPage
     {
-        //protected IWebElement SearchBox => Driver.FindElement(By.Id("sb_form_q"));
+        public BingChildPage(IWebDriver driver) : base(driver)
+        {
+        }
 
-        //protected IWebElement GoButton => Driver.FindElement(By.Id("sb_form_go"));
-
-        //protected IWebElement ResultsCountDiv => Driver.FindElement(By.Id("b_tween"));
-        protected IWebElement SearchBox => Driver.FindElement(By.Id("header-search-input"));
-        protected IWebElement GoButton => Driver.FindElement(By.Id("header-desktop-search-button"));
-
-        //private IWebElement _resultsCountDiv => _driver.FindElement(By.Id("b_tween"));
-        protected IWebElement ResultsCountDiv => Driver.FindElement(By.XPath("//*[@class=' fz-13']"));
+        public void SomeAction()
+        {
+            // only here can access the protected elements.
+        }
     }
 }

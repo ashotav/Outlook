@@ -1,4 +1,4 @@
-﻿// <copyright file="BingMainPage.Elements.cs" company="Automate The Planet Ltd.">
+﻿// <copyright file="BingMainPage.Actions.cs" company="Automate The Planet Ltd.">
 // Copyright 2017 Automate The Planet Ltd.
 // Licensed under the Apache License, Version 2.0 (the "License");
 // You may not use this file except in compliance with the License.
@@ -12,21 +12,28 @@
 // <author>Anton Angelov</author>
 // <site>https://automatetheplanet.com/</site>
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 
 namespace HuddlePageObjectsElementsAccessStyles.PublicPropertiesElements
 {
-
     public partial class BingMainPage
     {
-        //public IWebElement SearchBox => _driver.FindElement(By.Id("sb_form_q"));
+        private readonly IWebDriver _driver;
+        private readonly string _url = @"http://www.bing.com/";
 
-        //public IWebElement GoButton => _driver.FindElement(By.Id("sb_form_go"));
+        public BingMainPage(IWebDriver browser) => _driver = browser;
 
-        //public IWebElement ResultsCountDiv => _driver.FindElement(By.Id("b_tween"));
-        public IWebElement SearchBox => _driver.FindElement(By.Id("header-search-input"));
-        public IWebElement GoButton => _driver.FindElement(By.Id("header-desktop-search-button"));
-
-        //private IWebElement _resultsCountDiv => _driver.FindElement(By.Id("b_tween"));
-        public IWebElement ResultsCountDiv => _driver.FindElement(By.XPath("//*[@class=' fz-13']"));
+        public void Navigate() => _driver.Navigate().GoToUrl(_url);
+        
+        public void Search(string textToType)
+        {
+            SearchBox.Clear();
+            SearchBox.SendKeys(textToType);
+            Actions act = new Actions(_driver);
+            var d = act.MoveToElement(GoButton);
+            var c = d.Click();
+            //act.MoveToElement(GoButton).Click().Perform();
+            //GoButton.Click();
+        }
     }
 }

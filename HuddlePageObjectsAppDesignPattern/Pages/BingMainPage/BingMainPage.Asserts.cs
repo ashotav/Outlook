@@ -11,6 +11,7 @@
 // </copyright>
 // <author>Anton Angelov</author>
 // <site>https://automatetheplanet.com/</site>
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Support.UI;
 using System;
 
@@ -18,6 +19,18 @@ namespace HuddlePageObjectsAppDesignPattern
 {
     public partial class BingMainPage
     {
-        public void AssertResultsCount(string expectedCount) => Assert.AreEqual(ResultsCountDiv.Text, expectedCount);
+        //public void AssertResultsCount(string expectedCount) => Assert.AreEqual(ResultsCountDiv.Text, expectedCount);
+         public void AssertResultsCount(string expectedCount)
+        {
+            //string str = "236,000 RESULTS";
+            String actualString = ResultsCountDiv.Text;
+            //assertTrue(actualString.Contains(expectedCount));
+            //Assert.AssertTrue(actualString.Contains(expectedCount));
+            bool bis = expectedCount.Contains(actualString);
+                Assert.IsTrue(bis);
+            //Assert.AreEqual(str, expectedCount);
+            //StringAssert.AreEqual()
+
+        }
     }
 }

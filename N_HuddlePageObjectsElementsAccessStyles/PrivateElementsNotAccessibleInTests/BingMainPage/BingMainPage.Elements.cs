@@ -11,22 +11,18 @@
 // </copyright>
 // <author>Anton Angelov</author>
 // <site>https://automatetheplanet.com/</site>
+
 using OpenQA.Selenium;
 
-namespace HuddlePageObjectsElementsAccessStyles.PublicPropertiesElements
+namespace HuddlePageObjectsElementsAccessStyles.PrivateElementsNotAccessibleInTests
 {
 
     public partial class BingMainPage
     {
-        //public IWebElement SearchBox => _driver.FindElement(By.Id("sb_form_q"));
+        private IWebElement _searchBox => _driver.FindElement(By.Id("sb_form_q"));
 
-        //public IWebElement GoButton => _driver.FindElement(By.Id("sb_form_go"));
+        private IWebElement _goButton => _driver.FindElement(By.Id("sb_form_go"));
 
-        //public IWebElement ResultsCountDiv => _driver.FindElement(By.Id("b_tween"));
-        public IWebElement SearchBox => _driver.FindElement(By.Id("header-search-input"));
-        public IWebElement GoButton => _driver.FindElement(By.Id("header-desktop-search-button"));
-
-        //private IWebElement _resultsCountDiv => _driver.FindElement(By.Id("b_tween"));
-        public IWebElement ResultsCountDiv => _driver.FindElement(By.XPath("//*[@class=' fz-13']"));
+        private IWebElement _resultsCountDiv => _driver.FindElement(By.Id("b_tween"));
     }
 }

@@ -12,14 +12,14 @@
 // <author>Anton Angelov</author>
 // <site>https://automatetheplanet.com/</site>
 using OpenQA.Selenium;
-using OpenQA.Selenium.Interactions;
 
 namespace HuddlePageObjectsElementsAccessStyles.PublicPropertiesElements
 {
     public partial class BingMainPage
     {
         private readonly IWebDriver _driver;
-        private readonly string _url = @"http://www.bing.com/";
+        //private readonly string _url = @"http://www.bing.com/";
+        private readonly string _url = @"http://www.aol.com/";
 
         public BingMainPage(IWebDriver browser) => _driver = browser;
 
@@ -29,11 +29,7 @@ namespace HuddlePageObjectsElementsAccessStyles.PublicPropertiesElements
         {
             SearchBox.Clear();
             SearchBox.SendKeys(textToType);
-            Actions act = new Actions(_driver);
-            var d = act.MoveToElement(GoButton);
-            var c = d.Click();
-            //act.MoveToElement(GoButton).Click().Perform();
-            //GoButton.Click();
+            GoButton.Click();
         }
     }
 }
