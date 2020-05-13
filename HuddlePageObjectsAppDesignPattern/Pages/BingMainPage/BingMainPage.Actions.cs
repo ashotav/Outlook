@@ -28,14 +28,14 @@ namespace HuddlePageObjectsAppDesignPattern
 
         public override string Url => "http://www.bing.com/";
         //public override string Url => "http://www.google.com/";
-        //public override string Url => "http://yahoo.com/";
-        //public override string Url => "http://aol.com/";
+        //public override string Url => "https://www.yahoo.com/";
+        //public override string Url => "http://www.aol.com/";
 
 
         public void Search(string textToType)
         {
             SearchBox.Clear();
-            SearchBox.SendKeys(textToType +Keys.Enter);//
+            SearchBox.SendKeys(textToType + Keys.Enter);
             //GoButton.Click();
             ////var link = WrappedDriver.FindElement(By.PartialLinkText("Homepage"));
             //////var jsToBeExecuted = $"window.scroll(0, {link.Location.Y});";
@@ -45,12 +45,12 @@ namespace HuddlePageObjectsAppDesignPattern
             ////var clickableElement = wait.Until(ExpectedConditions.ElementToBeClickable(By.PartialLinkText("Homepage")));
             ////clickableElement.Click();
             //System.Threading.Thread.Sleep(TimeSpan.FromSeconds(8));
-            WrappedDriver.SwitchTo().Window(WrappedDriver.WindowHandles.Last());
+            //WrappedDriver.SwitchTo().Window(WrappedDriver.WindowHandles.Last());
 
             WebDriverWait wait = new WebDriverWait(WrappedDriver, TimeSpan.FromSeconds(10));
             wait.Until(ExpectedConditions.PresenceOfAllElementsLocatedBy(By.Id("b_tween")));
             bool bis = ResultsCountDiv.Text.Contains(ResultsCountDiv.Text);
-            Assert.IsTrue(bis);
+            //Assert.IsTrue(bis);
         }
     }
 }
