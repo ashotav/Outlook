@@ -27,5 +27,6 @@ namespace HuddlePageObjectsElementsAccessStyles.PrivateElementsNotAccessibleInTe
 
         //private IWebElement _resultsCountDiv => _driver.FindElement(By.Id("b_tween"));
         private IWebElement _resultsCountDiv => _driver.FindElement(By.XPath("//*[@class=' fz-13']"));
+        //private IWebElement _resultsCountDiv => _driver.FindElement(By.CssSelector(" fz-13"));
     }
 }
