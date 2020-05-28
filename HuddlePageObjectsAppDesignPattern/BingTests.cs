@@ -47,7 +47,7 @@ namespace HuddlePageObjectsElementsStringProperties
         [TestMethod]
         public void TryFirefoxDriver()
         {
-            var d = new EdgeDriver();
+            //var d = new EdgeDriver();
             //using (var driver = new FirefoxDriver())
             //{
             //    driver.Navigate().GoToUrl("https://automatetheplanet.com/multiple-files-page-objects-item-templates/");
@@ -60,19 +60,20 @@ namespace HuddlePageObjectsElementsStringProperties
             //    var clickableElement = wait.Until(ExpectedConditions.ElementToBeClickable(By.PartialLinkText("TFS Test API")));
             //    clickableElement.Click();
             //}
-            }
+        }
 
         [TestMethod]
         public void UseApp_SearchTextInBing_UseElementsDirectly()
         {
             var bingMainPage = _app.GoTo<BingMainPage>();
-            /*DBG*/ Thread.Sleep(TimeSpan.FromSeconds(8));
+            /*DBG*/ Thread.Sleep(TimeSpan.FromSeconds(2));
             bingMainPage.Search("Automate The Planet");
             //Thread.Sleep(TimeSpan.FromSeconds(30));
-            string str = "236,000 RESULTS";
-            //bingMainPage.AssertResultsCount(str);
+            string str = "916,000 Results";
+            System.Threading.Thread.Sleep(TimeSpan.FromSeconds(8));
+            bingMainPage.AssertResultsCount(str);
             //bingMainPage.AssertResultsCount("940,000 Results");
-            System.Threading.Thread.Sleep(TimeSpan.FromSeconds(18));
+            //System.Threading.Thread.Sleep(TimeSpan.FromSeconds(2));
         }
     }
 }

@@ -59,8 +59,8 @@ namespace HuddlePageObjectsElementsAccessStyles
             bingMainPage.SearchBox.SendKeys("Automate The Planet");
             bingMainPage.GoButton.Click();
 
-            bingMainPage.AssertResultsCount("About 72,900,000 search results");
-            //Assert.AreEqual(bingMainPage.ResultsCountDiv, "236,000 RESULTS");
+            bingMainPage.AssertResultsCount(bingMainPage.ResultsCountDiv.Text);
+            //bingMainPage.AssertResultsCount("236,000 RESULTS");
         }
 
         [TestMethod]
@@ -86,7 +86,7 @@ namespace HuddlePageObjectsElementsAccessStyles
             bingMainPage.Navigate();
             bingMainPage.Search("Automate The Planet");
 
-            bingMainPage.AssertResultsCount("236,000 RESULTS");
+            bingMainPage.AssertResultsCount("About 74,000,000 search results");
         }
 
         [TestMethod]
@@ -98,8 +98,7 @@ namespace HuddlePageObjectsElementsAccessStyles
             bingMainPage.Elements.SearchBox.SendKeys("Automate The Planet");
             bingMainPage.Elements.GoButton.Click();
 
-            bingMainPage.AssertResultsCount("236,000 RESULTS");
-            //Assert.AreEqual(bingMainPage.Elements.ResultsCountDiv.Text, "236,000 RESULTS");
+            bingMainPage.AssertResultsCount("About 73,900,000 search results");
         }
     }
 }

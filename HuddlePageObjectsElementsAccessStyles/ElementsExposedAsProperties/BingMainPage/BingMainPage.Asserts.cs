@@ -17,6 +17,6 @@ namespace HuddlePageObjectsElementsAccessStyles.ElementsExposedAsProperties
 {
     public partial class BingMainPage
     {
-        public void AssertResultsCount(string expectedCount) => Assert.AreEqual(Elements.ResultsCountDiv.Text, expectedCount);
+        public void AssertResultsCount(string expectedCount) => Assert.AreEqual(expectedCount, Elements.ResultsCountDiv.Text);
     }
 }

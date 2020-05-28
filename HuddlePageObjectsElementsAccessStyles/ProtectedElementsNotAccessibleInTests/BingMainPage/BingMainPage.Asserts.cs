@@ -17,6 +17,6 @@ namespace HuddlePageObjectsElementsAccessStyles.ProtectedElementsNotAccessibleIn
 {
     public partial class BingMainPage
     {
-        public void AssertResultsCount(string expectedCount) => Assert.AreEqual(ResultsCountDiv.Text, expectedCount);
+        public void AssertResultsCount(string expectedCount) => Assert.AreEqual(expectedCount, ResultsCountDiv.Text);
     }
 }
