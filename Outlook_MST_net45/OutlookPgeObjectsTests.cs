@@ -158,17 +158,23 @@ namespace WinAppDriverPgeObjects
             {
                 txt = _OutLookStandardView.ViewButton.Text;
                 _OutLookStandardView.ClickElement(_OutLookStandardView.ViewButton, fName);
+                txt = _OutLookStandardView.CurrentViewButton.Text;
+                _OutLookStandardView.ClickElement(_OutLookStandardView.CurrentViewButton, fName);
                 txt = _OutLookStandardView.ChangeViewButton.Text;
                 _OutLookStandardView.AssertDisplayed(_OutLookStandardView.ChangeViewButton);
                 _OutLookStandardView.ClickElement(_OutLookStandardView.ChangeViewButton, fName);
                 txt = _OutLookStandardView.CompactButton.Text;
                 _OutLookStandardView.CompactButton.Click();
                 Console.WriteLine($"Console: Test:{fName} {txt} Date: {DateTime.Now:dd-MM-yyyy HH:mm:ss.fff}");
+                txt = _OutLookStandardView.CurrentViewButton.Text;
+                _OutLookStandardView.ClickElement(_OutLookStandardView.CurrentViewButton, fName);
                 txt = _OutLookStandardView.ChangeViewButton.Text;
                 _OutLookStandardView.ClickElement(_OutLookStandardView.ChangeViewButton, fName);
                 txt = _OutLookStandardView.SingleButton.Text;
                 _OutLookStandardView.SingleButton.Click();
                 Console.WriteLine($"Console: Test:{fName} {txt} Date: {DateTime.Now:dd-MM-yyyy HH:mm:ss.fff}");
+                txt = _OutLookStandardView.CurrentViewButton.Text;
+                _OutLookStandardView.ClickElement(_OutLookStandardView.CurrentViewButton, fName);
                 txt = _OutLookStandardView.ChangeViewButton.Text;
                 _OutLookStandardView.ClickElement(_OutLookStandardView.ChangeViewButton, fName);
                 txt = _OutLookStandardView.PreviewButton.Text;
@@ -192,6 +198,8 @@ namespace WinAppDriverPgeObjects
             {
                 txt = _OutLookStandardView.ViewButton.Text;
                 _OutLookStandardView.ClickElement(_OutLookStandardView.ViewButton, fName);
+                txt = _OutLookStandardView.MessagesButton.Text;
+                _OutLookStandardView.ClickElement(_OutLookStandardView.MessagesButton, fName);
                 Console.WriteLine($"Value of checkbox is: {_OutLookStandardView.ShowAsConversationsButton.Selected}");
                 if (_OutLookStandardView.ShowAsConversationsButton.Enabled)
                 {
@@ -199,6 +207,8 @@ namespace WinAppDriverPgeObjects
                     _OutLookStandardView.ThisFolderButton.Click();
                     //_OutLookStandardView.ClickElement(_OutLookStandardView.ThisFolderButton, fName);
                 }
+                txt = _OutLookStandardView.MessagesButton.Text;
+                _OutLookStandardView.ClickElement(_OutLookStandardView.MessagesButton, fName);
                 Console.WriteLine($"Value of checkbox is: {_OutLookStandardView.ShowAsConversationsButton.Selected}");
                 if (_OutLookStandardView.ShowAsConversationsButton.Enabled)
                 {
@@ -213,5 +223,30 @@ namespace WinAppDriverPgeObjects
                 Assert.IsTrue(false, $"Testmetod {fName} failed.Element {txt} ");
             }
         }
+        [TestMethod]
+        public void QuickFileClick()
+        {
+            string txt = "";
+            string fName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+            fName = TestContext.TestName;
+            try
+            {
+                txt = _OutLookStandardView.HomeButton.Text;
+                _OutLookStandardView.ClickElement(_OutLookStandardView.HomeButton, fName);
+                Thread.Sleep(TimeSpan.FromSeconds(5));
+                if (_OutLookStandardView.ColumnRButton.Displayed)
+                    _OutLookStandardView.ClickElement(_OutLookStandardView.ColumnRButton, fName);
+                _OutLookStandardView.ClickElement(_OutLookStandardView.QuickFileButton, fName);
+                _OutLookStandardView.ClickElement(_OutLookStandardView.HistoryButton, fName);
+                _OutLookStandardView.ClickElement(_OutLookStandardView.CloseButton, fName);
+                Thread.Sleep(TimeSpan.FromSeconds(5));
+            }
+            catch (Exception exp)
+            {
+                Console.WriteLine($"Console catched:{fName} {exp.Message}");
+                Assert.IsTrue(false, $"Testmetod {fName} failed.Element {txt} ");
+            }
+        }
+
     }
 }
