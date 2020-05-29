@@ -70,6 +70,7 @@ namespace Z01_NU_nCore.Tests
         [Test]
         public void PlaceHolder()
         {
+
         }
 
         [TearDown]

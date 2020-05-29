@@ -66,8 +66,8 @@ namespace Z01_NU_nCore.Helpers
             Items fromMessages = fromFolder.Items;
             for (int i = 1; i <= mailCount; i++)
             {
-                MailItem message = fromMessages[i];
-                MailItem copiedmessage = message.Copy();
+                MailItem message = fromMessages[i] as MailItem;
+                MailItem copiedmessage = message;
                 copiedmessage.Move(toFolder);
             }
         }
@@ -129,7 +129,7 @@ namespace Z01_NU_nCore.Helpers
             Folders oFolders;
 
             if (parentFolder == null)
-                parentFolder = inboxFolder.Parent;
+                parentFolder = inboxFolder.Parent as MAPIFolder;
 
             oFolders = parentFolder.Folders;
             foreach (MAPIFolder Folder in oFolders)

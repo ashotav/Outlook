@@ -3,6 +3,7 @@ using AventStack.ExtentReports.Reporter;
 using AventStack.ExtentReports.Reporter.Configuration;
 using NUnit.Framework;
 using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -33,6 +34,7 @@ namespace Z01_NU_nCore.Tests
             string assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             // string projectPath = @"C:\Program Files (x86)\Jenkins\workspace\TestRunner";
             reportPath = assemblyPath + "..\\..\\Reports\\TestRunReport.html";
+            //reportPath = assemblyPath + "\\Reports\\TestRunReport.html";
             extent = new ExtentReports();
             ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(reportPath);
             htmlReporter.Config.Theme = Theme.Standard;
