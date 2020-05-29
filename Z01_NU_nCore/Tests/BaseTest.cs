@@ -15,6 +15,7 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Z01_NU_nCore.Helpers;
+using Z01_NU_nCore.Pages;
 
 namespace Z01_NU_nCore.Tests
 {
@@ -32,6 +33,8 @@ namespace Z01_NU_nCore.Tests
         public static WebDriverWait wait;
         public static string assemblyPath;
         public static string reportPath;
+        private static BasePage _BasePage;
+        private static WebDriverWait _waitEl;
 
         [OneTimeSetUp]
         public void OneTimeSetUp()
@@ -48,9 +51,13 @@ namespace Z01_NU_nCore.Tests
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(40);
             Thread.Sleep(8000);
             wait = new WebDriverWait(driver, new TimeSpan(0, 0, 120));
+            _waitEl = new WebDriverWait(driver, TimeSpan.FromSeconds(8));
+            Assert.IsNotNull(_waitEl);
             helper.waitUntilOutlookOpens(driver);
             var allWindowHandles = driver.WindowHandles;
             driver.SwitchTo().Window(allWindowHandles[0]);
+            _BasePage = new BasePage(driver);
+
         }
 
         [SetUp]
@@ -72,6 +79,28 @@ namespace Z01_NU_nCore.Tests
         {
 
         }
+ 
+        [Test]
+        public void FolderClick()
+        {
+            string fName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+            fName = TestContext.CurrentContext.Test.MethodName;
+            string txt = "";
+            try
+            {
+                txt = _BasePage.FolderButton.Text;
+                _BasePage.WaitUntil(_BasePage.FolderButton,_waitEl, fName);
+                _BasePage.ClickElement(_BasePage.FolderButton, fName);
+                txt = _BasePage.NewFolderButton.Text;
+                _BasePage.AssertDisplayed(_BasePage.NewFolderButton);
+                //_OutLookStandardView.AssertDisplayed(_OutLookStandardView.NewEmailButton);
+            }
+            catch (Exception exp)
+            {
+                Console.WriteLine($"Console " + $"catched: {fName}{exp.Message}");
+                Assert.IsTrue(false, $"Testmetod {fName} failed.Element {txt} ");
+            }
+        }
 
         [TearDown]
         public void TearDown()
@@ -84,27 +113,27 @@ namespace Z01_NU_nCore.Tests
                 string stackTrace = TestContext.CurrentContext.Result.StackTrace.ToString();
                 extentTest.Fail(errorMessage + "<br>" + stackTrace);
                 helper.closeAllApplevels(driver);
-                helper.killZeroProcess();
+                ////helper.killZeroProcess();
                 string appdatapath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                helper.ZipDirectory(appdatapath + "\\ZeroOutlookAddin");
-                helper.startZeroProcess();
+                ////helper.ZipDirectory(appdatapath + "\\ZeroOutlookAddin");
+                ////helper.startZeroProcess();
                 string path = Path.GetDirectoryName(BaseTest.reportPath) + "\\Logs";
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
                 }
                 string zipfolderpath = path + "\\" + Guid.NewGuid().ToString() + ".zip";
-                File.Move(appdatapath + "\\ZeroOutlookAddin.zip", zipfolderpath);
+                ////File.Move(appdatapath + "\\ZeroOutlookAddin.zip", zipfolderpath);
                 extentTest.Fail("Run logs location: <a class='ziplink' href='" + zipfolderpath + "'>link</a>");
             }
             //  driver.CloseApp();
-            //  extent.Flush();
+            //GlobalTestSetup.extent.Flush();
         }
 
         [OneTimeTearDown]
         public void OneTimeTearDown()
         {
-            //   extent.Flush();
+            //GlobalTestSetup.extent.Flush();
             if (helper.isAppRuning(driver))
             {
                 helper.closeAllApplevels(driver);

@@ -35,19 +35,25 @@ namespace Z01_NU_nCore.Tests
             // string projectPath = @"C:\Program Files (x86)\Jenkins\workspace\TestRunner";
             reportPath = assemblyPath + "..\\..\\Reports\\TestRunReport.html";
             //reportPath = assemblyPath + "\\Reports\\TestRunReport.html";
-            extent = new ExtentReports();
+             extent = new ExtentReports();
             ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(reportPath);
             htmlReporter.Config.Theme = Theme.Standard;
             htmlReporter.Config.DocumentTitle = "Zero Windows";
             htmlReporter.Config.ReportName = "Zero";
-            extent.AttachReporter(htmlReporter);
-
+             extent.AttachReporter(htmlReporter);
+            //extent.CreateTest("rrrrrrr", "ggggggggg");
         }
 
         [OneTimeTearDown]
         public void GlobalTeardown()
         {
-            extent.Flush();
+            try
+            {
+                extent.Flush();
+            }
+            catch (Exception ed)
+            { }
+
             if (driverProcess != null)
             {
                 driverProcess.Kill();
