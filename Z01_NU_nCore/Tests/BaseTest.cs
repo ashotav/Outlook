@@ -34,7 +34,7 @@ namespace Z01_NU_nCore.Tests
         public static string assemblyPath;
         public static string reportPath;
         private static BasePage _BasePage;
-        private static WebDriverWait _waitEl;
+        //private static WebDriverWait _waitEl;
 
         [OneTimeSetUp]
         public void OneTimeSetUp()
@@ -49,13 +49,20 @@ namespace Z01_NU_nCore.Tests
             opt.AddAdditionalCapability("deviceName", "WindowsPC");
             driver = new WindowsDriver<WindowsElement>(new Uri(WindowsApplicationDriverUrl), opt, TimeSpan.FromMinutes(1));
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(40);
-            Thread.Sleep(8000);
-            wait = new WebDriverWait(driver, new TimeSpan(0, 0, 120));
-            _waitEl = new WebDriverWait(driver, TimeSpan.FromSeconds(8));
-            Assert.IsNotNull(_waitEl);
+
+            Thread.Sleep(TimeSpan.FromSeconds(8));
+            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            // _waitEl = new WebDriverWait(driver, TimeSpan.FromSeconds(8));
+            Assert.IsNotNull(wait);
             helper.waitUntilOutlookOpens(driver);
+
+            // Return all window handles associated with this process/application.
             var allWindowHandles = driver.WindowHandles;
+            // Assuming you only have only one window entry in allWindowHandles and it is in fact the correct one,
+            // switch the session to that window as follows. You can repeat this logic with any top window with the same
+            // process id (any entry of allWindowHandles)
             driver.SwitchTo().Window(allWindowHandles[0]);
+
             _BasePage = new BasePage(driver);
 
         }
@@ -89,7 +96,7 @@ namespace Z01_NU_nCore.Tests
             try
             {
                 txt = _BasePage.FolderButton.Text;
-                _BasePage.WaitUntil(_BasePage.FolderButton,_waitEl, fName);
+                _BasePage.WaitUntil(_BasePage.FolderButton, wait, fName);
                 _BasePage.ClickElement(_BasePage.FolderButton, fName);
                 txt = _BasePage.NewFolderButton.Text;
                 _BasePage.AssertDisplayed(_BasePage.NewFolderButton);

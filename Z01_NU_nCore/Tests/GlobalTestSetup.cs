@@ -51,8 +51,10 @@ namespace Z01_NU_nCore.Tests
             {
                 extent.Flush();
             }
-            catch (Exception ed)
-            { }
+            catch (Exception exp)
+            {
+                Console.WriteLine($"GlobalTeardown() catched: {exp.Message}");
+            }
 
             if (driverProcess != null)
             {
